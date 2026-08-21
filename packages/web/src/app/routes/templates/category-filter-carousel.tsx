@@ -1,6 +1,6 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion } from 'motion/react';
 
-import { Button } from '@/components/ui/button';
 import {
   Carousel,
   CarouselContent,
@@ -28,39 +28,52 @@ const CarouselContentWithButtons = ({
 
   return (
     <div
-      className={`relative my-4 transition-[padding] duration-200 py-3 border-b border-t `}
+      className="relative my-3 py-2 border-b border-t border-border/60 bg-background/80 backdrop-blur-sm transition-[padding] duration-200"
       style={{
-        paddingLeft: canScrollPrev ? '3rem' : '0',
-        paddingRight: canScrollNext ? '3rem' : '0',
+        paddingLeft: canScrollPrev ? '2.75rem' : '0',
+        paddingRight: canScrollNext ? '2.75rem' : '0',
       }}
     >
-      <CarouselContent className={cn('-ml-2 gap-1', className)}>
+      <CarouselContent className={cn('-ml-2 gap-1.5 items-center', className)}>
         {categories.map((category) => {
           const isSelected = selectedCategory === category;
           return (
             <CarouselItem key={category} className="basis-auto pl-2">
-              <Button
-                variant="outline"
+              <button
+                type="button"
                 onClick={() => onCategorySelect(category)}
-                className={`px-4 py-1.5 h-auto whitespace-nowrap transition-colors ${
+                className={cn(
+                  'relative px-4 py-1.5 text-sm font-medium rounded-full transition-colors duration-200 outline-none select-none flex items-center justify-center',
                   isSelected
-                    ? 'bg-black text-white border-black hover:!bg-black hover:!text-white'
-                    : 'bg-transparent hover:!bg-sidebar-accent hover:!text-sidebar-accent-foreground border-none'
-                }`}
+                    ? 'text-primary-foreground dark:text-black font-semibold'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-accent/40',
+                )}
               >
-                {category}
-              </Button>
+                {isSelected && (
+                  <motion.div
+                    layoutId="aceternityActiveTab"
+                    className="absolute inset-0 bg-primary dark:bg-white rounded-full shadow-sm -z-10"
+                    transition={{
+                      type: 'spring',
+                      stiffness: 380,
+                      damping: 30,
+                      bounce: 0.15,
+                    }}
+                  />
+                )}
+                <span className="relative z-10 whitespace-nowrap">{category}</span>
+              </button>
             </CarouselItem>
           );
         })}
       </CarouselContent>
       {canScrollPrev && (
-        <CarouselPrevious variant="ghost" className="left-0 z-10">
+        <CarouselPrevious variant="ghost" className="left-1 z-10 h-8 w-8 rounded-full border bg-background/90 shadow-sm backdrop-blur-sm hover:bg-accent">
           <ChevronLeft className="h-4 w-4" />
         </CarouselPrevious>
       )}
       {canScrollNext && (
-        <CarouselNext variant="ghost" className="right-0 z-10">
+        <CarouselNext variant="ghost" className="right-1 z-10 h-8 w-8 rounded-full border bg-background/90 shadow-sm backdrop-blur-sm hover:bg-accent">
           <ChevronRight className="h-4 w-4" />
         </CarouselNext>
       )}

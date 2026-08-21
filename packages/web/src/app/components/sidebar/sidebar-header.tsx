@@ -18,8 +18,9 @@ import { flagsHooks } from '@/hooks/flags-hooks';
 import { platformHooks } from '@/hooks/platform-hooks';
 import { determineDefaultRoute } from '@/lib/route-utils';
 
+import { ThemeCustomizer } from '@/app/components/ThemeCustomizer/customizer';
+
 function SidebarLogoCollapsed({ linkTo }: { linkTo?: string }) {
-  const branding = flagsHooks.useWebsiteBranding();
   const navigate = useNavigate();
   return (
     <Button
@@ -29,9 +30,9 @@ function SidebarLogoCollapsed({ linkTo }: { linkTo?: string }) {
       className="h-10! w-8! p-0! group-data-[collapsible=icon]:h-10! items-center justify-center"
     >
       <img
-        src={branding.logos.logoIconUrl}
+        src="/zionitLOGO.png"
         alt={t('home')}
-        className="h-5! w-5! shrink-0"
+        className="h-6! w-6! object-contain shrink-0"
         draggable={false}
       />
     </Button>
@@ -54,13 +55,16 @@ export const AppSidebarHeader = () => {
   if (!showSwitcher) {
     return (
       <SidebarHeader className="pb-0">
-        <div className="w-full flex items-center gap-2">
-          <SidebarLogoCollapsed linkTo={defaultRoute} />
-          {state !== 'collapsed' && (
-            <h1 className="truncate text-sm font-medium">
-              {branding.websiteName}
-            </h1>
-          )}
+        <div className="w-full flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2">
+            <SidebarLogoCollapsed linkTo={defaultRoute} />
+            {state !== 'collapsed' && (
+              <h1 className="truncate text-sm font-medium">
+                {branding.websiteName}
+              </h1>
+            )}
+          </div>
+          {state !== 'collapsed' && <ThemeCustomizer />}
         </div>
       </SidebarHeader>
     );
@@ -72,7 +76,7 @@ export const AppSidebarHeader = () => {
         <SidebarMenuItem className="flex items-center">
           <SidebarLogoCollapsed linkTo={defaultRoute} />
           {state !== 'collapsed' && (
-            <div className="flex-1 min-w-0">
+            <div className="flex-1 min-w-0 flex items-center justify-between gap-1">
               <PlatformSwitcher>
                 <SidebarMenuButton className="h-10! w-full">
                   <span className="truncate font-medium flex-1 text-left text-sm">
@@ -81,6 +85,7 @@ export const AppSidebarHeader = () => {
                   <ChevronsUpDown className="ml-auto size-3! shrink-0" />
                 </SidebarMenuButton>
               </PlatformSwitcher>
+              <ThemeCustomizer />
             </div>
           )}
         </SidebarMenuItem>

@@ -6,6 +6,7 @@ import {
 } from '@activepieces/shared';
 import { t } from 'i18next';
 import { Plus } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
 import { useCallback, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -15,7 +16,7 @@ import { Button } from '@/components/ui/button';
 import { flowHooks } from '@/features/flows';
 import { templatesTelemetryApi, templatesHooks } from '@/features/templates';
 import { platformHooks } from '@/hooks/platform-hooks';
-import { DASHBOARD_CONTENT_PADDING_X } from '@/lib/utils';
+import { cn, DASHBOARD_CONTENT_PADDING_X } from '@/lib/utils';
 
 import { AllCategoriesView } from './all-categories-view';
 import { CategoryFilterCarousel } from './category-filter-carousel';
@@ -134,27 +135,53 @@ const TemplatesPage = () => {
             />
           )}
         </div>
-        <div className={DASHBOARD_CONTENT_PADDING_X}>
-          {!hasTemplates && !showLoading ? (
-            <EmptyTemplatesView />
-          ) : showAllCategories ? (
-            <AllCategoriesView
-              templatesByCategory={templatesByCategory}
-              categories={categories}
-              onCategorySelect={setCategory}
-              onTemplateSelect={handleTemplateSelect}
-              isLoading={showLoading}
-              hideHeader={!isShowingOfficialTemplates}
-            />
-          ) : (
-            <SelectedCategoryView
-              category={selectedCategory}
-              templates={selectedCategoryTemplates}
-              onTemplateSelect={handleTemplateSelect}
-              isLoading={showLoading}
-              showCategoryTitle={showCategoryTitleForOfficialTemplates}
-            />
-          )}
+        <div className={cn(DASHBOARD_CONTENT_PADDING_X, 'min-h-[400px]')}>
+          <AnimatePresence mode="wait">
+            {!hasTemplates && !showLoading ? (
+              <motion.div
+                key="empty-templates"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.2, ease: 'easeInOut' }}
+              >
+                <EmptyTemplatesView />
+              </motion.div>
+            ) : showAllCategories ? (
+              <motion.div
+                key="all-categories"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.2, ease: 'easeInOut' }}
+              >
+                <AllCategoriesView
+                  templatesByCategory={templatesByCategory}
+                  categories={categories}
+                  onCategorySelect={setCategory}
+                  onTemplateSelect={handleTemplateSelect}
+                  isLoading={showLoading}
+                  hideHeader={!isShowingOfficialTemplates}
+                />
+              </motion.div>
+            ) : (
+              <motion.div
+                key={`category-${selectedCategory}`}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.2, ease: 'easeInOut' }}
+              >
+                <SelectedCategoryView
+                  category={selectedCategory}
+                  templates={selectedCategoryTemplates}
+                  onTemplateSelect={handleTemplateSelect}
+                  isLoading={showLoading}
+                  showCategoryTitle={showCategoryTitleForOfficialTemplates}
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </div>
