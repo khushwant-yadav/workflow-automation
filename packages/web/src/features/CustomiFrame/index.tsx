@@ -1,19 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export interface CustomiFrameProps {
-  activepiecesUrl?: string;
-  token?: string;
-  projectId?: string;
-  flowId?: string;
-  viewMode?: 'builder' | 'flows_list' | 'runs' | 'connections' | 'custom_route';
-  customRoute?: string;
-  hideHeader?: boolean;
-  disableNavigation?: boolean;
-  height?: string;
-  width?: string;
-  title?: string;
-  className?: string;
-}
+
 
 export const CustomiFrame: React.FC<CustomiFrameProps> = ({
   activepiecesUrl = 'http://localhost:4200',
@@ -145,5 +132,20 @@ export const CustomiFrame: React.FC<CustomiFrameProps> = ({
     </div>
   );
 };
+
+export interface CustomiFrameProps {
+  activepiecesUrl?: string;
+  token?: string;
+  projectId?: string;
+  flowId?: string;
+  viewMode?: 'builder' | 'flows_list' | 'runs' | 'connections' | 'custom_route';
+  customRoute?: string;
+  hideHeader?: boolean;
+  disableNavigation?: boolean;
+  height?: string;
+  width?: string;
+  title?: string;
+  className?: string;
+}
 
 export default CustomiFrame;
