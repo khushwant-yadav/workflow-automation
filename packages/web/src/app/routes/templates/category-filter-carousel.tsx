@@ -61,19 +61,27 @@ const CarouselContentWithButtons = ({
                     }}
                   />
                 )}
-                <span className="relative z-10 whitespace-nowrap">{category}</span>
+                <span className="relative z-10 whitespace-nowrap">
+                  {category}
+                </span>
               </button>
             </CarouselItem>
           );
         })}
       </CarouselContent>
       {canScrollPrev && (
-        <CarouselPrevious variant="ghost" className="left-1 z-10 h-8 w-8 rounded-full border bg-background/90 shadow-sm backdrop-blur-sm hover:bg-accent">
+        <CarouselPrevious
+          variant="ghost"
+          className="left-1 z-10 h-8 w-8 rounded-full border bg-background/90 shadow-sm backdrop-blur-sm hover:bg-accent"
+        >
           <ChevronLeft className="h-4 w-4" />
         </CarouselPrevious>
       )}
       {canScrollNext && (
-        <CarouselNext variant="ghost" className="right-1 z-10 h-8 w-8 rounded-full border bg-background/90 shadow-sm backdrop-blur-sm hover:bg-accent">
+        <CarouselNext
+          variant="ghost"
+          className="right-1 z-10 h-8 w-8 rounded-full border bg-background/90 shadow-sm backdrop-blur-sm hover:bg-accent"
+        >
           <ChevronRight className="h-4 w-4" />
         </CarouselNext>
       )}

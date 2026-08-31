@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-
-
 export const CustomiFrame: React.FC<CustomiFrameProps> = ({
   activepiecesUrl = 'http://localhost:4200',
   token,
@@ -26,7 +24,7 @@ export const CustomiFrame: React.FC<CustomiFrameProps> = ({
 
     switch (viewMode) {
       case 'builder':
-        return flowId 
+        return flowId
           ? `/projects/${projectId}/flows/${flowId}`
           : `/projects/${projectId}/flows/new`;
       case 'flows_list':
@@ -114,7 +112,14 @@ export const CustomiFrame: React.FC<CustomiFrameProps> = ({
               100% { transform: rotate(360deg); }
             }
           `}</style>
-          <p style={{ marginTop: '14px', color: '#cbd5e1', fontSize: '13px', fontWeight: 500 }}>
+          <p
+            style={{
+              marginTop: '14px',
+              color: '#cbd5e1',
+              fontSize: '13px',
+              fontWeight: 500,
+            }}
+          >
             Loading Activepieces ({viewMode})...
           </p>
         </div>

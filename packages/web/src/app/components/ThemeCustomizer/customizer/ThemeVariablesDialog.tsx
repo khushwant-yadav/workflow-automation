@@ -21,7 +21,6 @@
 // import { presets } from '@/components/utils/theme-presets'
 // import CopyButton from '../CopyButton'
 
-
 // type ThemeVariablesDialogProps = {
 //   lightTheme?: Partial<ThemeStyleProps>
 //   darkTheme?: Partial<ThemeStyleProps>

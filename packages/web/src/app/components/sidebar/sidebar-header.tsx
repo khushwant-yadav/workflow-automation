@@ -3,6 +3,7 @@ import { t } from 'i18next';
 import { ChevronsUpDown } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
+import { ThemeCustomizer } from '@/app/components/ThemeCustomizer/customizer';
 import { useEmbedding } from '@/components/providers/embed-provider';
 import { Button } from '@/components/ui/button';
 import {
@@ -17,8 +18,6 @@ import { useAuthorization } from '@/hooks/authorization-hooks';
 import { flagsHooks } from '@/hooks/flags-hooks';
 import { platformHooks } from '@/hooks/platform-hooks';
 import { determineDefaultRoute } from '@/lib/route-utils';
-
-import { ThemeCustomizer } from '@/app/components/ThemeCustomizer/customizer';
 
 function SidebarLogoCollapsed({ linkTo }: { linkTo?: string }) {
   const navigate = useNavigate();

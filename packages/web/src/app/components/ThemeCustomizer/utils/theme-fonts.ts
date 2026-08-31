@@ -1,7 +1,6 @@
 // Type Imports
 
-import { ThemeStyleProps } from "../types/theme"
-
+import { ThemeStyleProps } from '../types/theme';
 
 const sansSerifFontNames = [
   'Inter',
@@ -18,8 +17,8 @@ const sansSerifFontNames = [
   'Source Code Pro',
   'Lato',
   'Gabriela',
-  'Delius Swash Caps'
-]
+  'Delius Swash Caps',
+];
 
 const serifFontNames = [
   'Merriweather',
@@ -33,8 +32,8 @@ const serifFontNames = [
   'Nunito',
   'Lato',
   'Gabriela',
-  'Delius Swash Caps'
-]
+  'Delius Swash Caps',
+];
 
 const monoFontNames = [
   'JetBrains Mono',
@@ -44,8 +43,8 @@ const monoFontNames = [
   'IBM Plex Mono',
   'Roboto Mono',
   'Space Mono',
-  'Delius Swash Caps'
-]
+  'Delius Swash Caps',
+];
 
 export const fonts = {
   // Sans-serif fonts
@@ -80,24 +79,30 @@ export const fonts = {
   'Geist Mono': 'Geist Mono, Geist Mono Fallback, monospace',
   'IBM Plex Mono': 'IBM Plex Mono, monospace',
   'Roboto Mono': 'Roboto Mono, monospace',
-  'Space Mono': 'Space Mono, monospace'
-}
+  'Space Mono': 'Space Mono, monospace',
+};
 
 export const sansSerifFonts = Object.fromEntries(
-  Object.entries(fonts).filter(([key]) => sansSerifFontNames.includes(key))
-)
-export const serifFonts = Object.fromEntries(Object.entries(fonts).filter(([key]) => serifFontNames.includes(key)))
-export const monoFonts = Object.fromEntries(Object.entries(fonts).filter(([key]) => monoFontNames.includes(key)))
+  Object.entries(fonts).filter(([key]) => sansSerifFontNames.includes(key)),
+);
+export const serifFonts = Object.fromEntries(
+  Object.entries(fonts).filter(([key]) => serifFontNames.includes(key)),
+);
+export const monoFonts = Object.fromEntries(
+  Object.entries(fonts).filter(([key]) => monoFontNames.includes(key)),
+);
 
 export const getAppliedThemeFont = (
   state: Partial<ThemeStyleProps> | undefined,
-  fontKey: keyof ThemeStyleProps
+  fontKey: keyof ThemeStyleProps,
 ): string | null => {
-  if (!state) return null
-  const fontSans = state[fontKey]
+  if (!state) return null;
+  const fontSans = state[fontKey];
 
   // find key of font in fonts object based on value
-  const key = Object.keys(fonts).find(key => fonts[key as keyof typeof fonts].includes(fontSans as string))
+  const key = Object.keys(fonts).find((key) =>
+    fonts[key as keyof typeof fonts].includes(fontSans as string),
+  );
 
-  return key ? key : null
-}
+  return key ? key : null;
+};

@@ -1,15 +1,17 @@
 // React Imports
-import { useContext } from 'react'
-import { SettingsContext } from '../settingsContext'
+import { useContext } from 'react';
 
+import { SettingsContext } from '../settingsContext';
 
 export const useSettings = () => {
   // Hooks
-  const context = useContext(SettingsContext)
+  const context = useContext(SettingsContext);
 
   if (!context) {
-    throw new Error('useSettingsContext must be used within a SettingsProvider')
+    throw new Error(
+      'useSettingsContext must be used within a SettingsProvider',
+    );
   }
 
-  return context
-}
+  return context;
+};

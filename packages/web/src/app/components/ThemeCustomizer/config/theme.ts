@@ -1,4 +1,4 @@
-import { ThemeStyles } from "../types/theme"
+import { ThemeStyles } from '../types/theme';
 
 // Type Imports
 export const COMMON_STYLES = [
@@ -12,17 +12,17 @@ export const COMMON_STYLES = [
   'shadow-offset-x',
   'shadow-offset-y',
   'letter-spacing',
-  'spacing'
-]
+  'spacing',
+];
 
 export const DEFAULT_FONT_SANS =
-  "'Geist', 'Geist Fallback', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'"
+  "'Geist', 'Geist Fallback', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'";
 
 export const DEFAULT_FONT_SERIF =
-  '"Geist", "Geist Fallback", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif'
+  '"Geist", "Geist Fallback", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif';
 
 export const DEFAULT_FONT_MONO =
-  '"Geist Mono", "Geist Mono Fallback", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'
+  '"Geist Mono", "Geist Mono Fallback", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace';
 
 // Default light theme styles
 export const defaultLightThemeStyles: ThemeStyles['light'] = {
@@ -70,8 +70,8 @@ export const defaultLightThemeStyles: ThemeStyles['light'] = {
   'shadow-offset-y': '1px',
 
   'letter-spacing': '0em',
-  spacing: '0.25rem'
-}
+  spacing: '0.25rem',
+};
 
 // Default dark theme styles
 export const defaultDarkThemeStyles: ThemeStyles['dark'] = {
@@ -115,11 +115,11 @@ export const defaultDarkThemeStyles: ThemeStyles['dark'] = {
   'shadow-offset-y': '1px',
 
   'letter-spacing': '0em',
-  spacing: '0.25rem'
-}
+  spacing: '0.25rem',
+};
 
 // Default theme state
 export const defaultThemeState: ThemeStyles = {
   light: defaultLightThemeStyles,
-  dark: defaultDarkThemeStyles
-}
+  dark: defaultDarkThemeStyles,
+};

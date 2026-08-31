@@ -1,29 +1,28 @@
-import { defaultThemeState } from "../config/theme"
-import { ThemeStyles } from "../types/theme"
-
+import { defaultThemeState } from '../config/theme';
+import { ThemeStyles } from '../types/theme';
 
 export function getPresetThemeStyles(name: string): ThemeStyles {
   if (name === 'default') {
-    return defaultThemeState
+    return defaultThemeState;
   }
 
-  const preset = presets[name]
+  const preset = presets[name];
 
   if (!preset) {
-    return defaultThemeState
+    return defaultThemeState;
   }
 
   return {
     light: {
       ...defaultThemeState.light,
-      ...(preset.light || {})
+      ...(preset.light || {}),
     },
     dark: {
       ...defaultThemeState.dark,
-      ...(preset.dark || {})
+      ...(preset.dark || {}),
     },
-    css: preset.css || {}
-  }
+    css: preset.css || {},
+  };
 }
 
 export const presets: Record<string, ThemeStyles> = {
@@ -72,7 +71,7 @@ export const presets: Record<string, ThemeStyles> = {
       'shadow-blur': '5px',
       'shadow-spread': '0px',
       'shadow-offset-x': '0px',
-      'shadow-offset-y': '2px'
+      'shadow-offset-y': '2px',
     },
     dark: {
       background: 'oklch(0.22 0 0)',
@@ -112,11 +111,11 @@ export const presets: Record<string, ThemeStyles> = {
       'shadow-blur': '2px',
       'shadow-spread': '0px',
       'shadow-offset-x': '0px',
-      'shadow-offset-y': '1px'
+      'shadow-offset-y': '1px',
     },
     meta: {
-      badge: 'New'
-    }
+      badge: 'New',
+    },
   },
   'art-deco': {
     light: {
@@ -163,7 +162,7 @@ export const presets: Record<string, ThemeStyles> = {
       'shadow-blur': '3px',
       'shadow-spread': '0px',
       'shadow-offset-x': '0px',
-      'shadow-offset-y': '1px'
+      'shadow-offset-y': '1px',
     },
 
     dark: {
@@ -204,11 +203,11 @@ export const presets: Record<string, ThemeStyles> = {
       'shadow-blur': '3px',
       'shadow-spread': '0px',
       'shadow-offset-x': '0px',
-      'shadow-offset-y': '1px'
+      'shadow-offset-y': '1px',
     },
     meta: {
-      badge: 'New'
-    }
+      badge: 'New',
+    },
   },
   'vs-code': {
     light: {
@@ -256,7 +255,7 @@ export const presets: Record<string, ThemeStyles> = {
       'shadow-blur': '2.5px',
       'shadow-spread': '0px',
       'shadow-offset-x': '0px',
-      'shadow-offset-y': '1px'
+      'shadow-offset-y': '1px',
     },
     dark: {
       background: 'oklch(0.18 0.02 271.27)',
@@ -296,8 +295,8 @@ export const presets: Record<string, ThemeStyles> = {
       'shadow-blur': '2px',
       'shadow-spread': '0px',
       'shadow-offset-x': '0px',
-      'shadow-offset-y': '1px'
-    }
+      'shadow-offset-y': '1px',
+    },
   },
   spotify: {
     light: {
@@ -334,7 +333,8 @@ export const presets: Record<string, ThemeStyles> = {
       'sidebar-ring': 'oklch(0.67 0.17 153.85)',
 
       'font-sans': 'Lato, sans-serif',
-      'font-serif': 'Merriweather, Geist, Geist Fallback, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
+      'font-serif':
+        'Merriweather, Geist, Geist Fallback, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
       'font-mono':
         'Roboto Mono, Geist Mono, Geist Mono Fallback, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
 
@@ -345,7 +345,7 @@ export const presets: Record<string, ThemeStyles> = {
       'shadow-blur': '3px',
       'shadow-spread': '0px',
       'shadow-offset-x': '0px',
-      'shadow-offset-y': '1px'
+      'shadow-offset-y': '1px',
     },
     dark: {
       background: 'oklch(0.15 0.02 269.18)',
@@ -385,8 +385,8 @@ export const presets: Record<string, ThemeStyles> = {
       'shadow-blur': '2px',
       'shadow-spread': '0px',
       'shadow-offset-x': '0px',
-      'shadow-offset-y': '1px'
-    }
+      'shadow-offset-y': '1px',
+    },
   },
   summer: {
     light: {
@@ -422,7 +422,8 @@ export const presets: Record<string, ThemeStyles> = {
       'sidebar-border': 'oklch(0.87 0.08 65.91)',
       'sidebar-ring': 'oklch(0.70 0.17 28.12)',
       'font-sans': 'Nunito, Segoe UI, Tahoma, Geneva, Verdana, sans-serif',
-      'font-serif': 'Lora, ui-serif, Georgia, Cambria, Times New Roman, Times, serif',
+      'font-serif':
+        'Lora, ui-serif, Georgia, Cambria, Times New Roman, Times, serif',
       'font-mono': 'Fira Code, ui-monospace, SFMono-Regular',
       radius: '0.6rem',
       'shadow-color': 'oklch(0.70 0.17 28.12 / 30%)',
@@ -430,7 +431,7 @@ export const presets: Record<string, ThemeStyles> = {
       'shadow-blur': '3px',
       'shadow-spread': '0px',
       'shadow-offset-x': '0px',
-      'shadow-offset-y': '1px'
+      'shadow-offset-y': '1px',
     },
     dark: {
       background: 'oklch(0.26 0.02 60.79)',
@@ -470,8 +471,8 @@ export const presets: Record<string, ThemeStyles> = {
       'shadow-blur': '3px',
       'shadow-spread': '0px',
       'shadow-offset-x': '0px',
-      'shadow-offset-y': '1px'
-    }
+      'shadow-offset-y': '1px',
+    },
   },
   'material-design': {
     light: {
@@ -519,7 +520,7 @@ export const presets: Record<string, ThemeStyles> = {
       'shadow-blur': '3px',
       'shadow-spread': '0px',
       'shadow-offset-x': '0px',
-      'shadow-offset-y': '1px'
+      'shadow-offset-y': '1px',
     },
     dark: {
       background: 'oklch(0.15 0.01 317.69)',
@@ -558,8 +559,8 @@ export const presets: Record<string, ThemeStyles> = {
       'shadow-blur': '3px',
       'shadow-spread': '0px',
       'shadow-offset-x': '0px',
-      'shadow-offset-y': '1px'
-    }
+      'shadow-offset-y': '1px',
+    },
   },
   marvel: {
     light: {
@@ -605,7 +606,7 @@ export const presets: Record<string, ThemeStyles> = {
       'shadow-blur': '3px',
       'shadow-spread': '0px',
       'shadow-offset-x': '0px',
-      'shadow-offset-y': '1px'
+      'shadow-offset-y': '1px',
     },
     dark: {
       background: 'oklch(0.12 0.01 38.49)',
@@ -644,8 +645,8 @@ export const presets: Record<string, ThemeStyles> = {
       'shadow-blur': '3px',
       'shadow-spread': '0px',
       'shadow-offset-x': '0px',
-      'shadow-offset-y': '1px'
-    }
+      'shadow-offset-y': '1px',
+    },
   },
   valorant: {
     light: {
@@ -689,7 +690,7 @@ export const presets: Record<string, ThemeStyles> = {
       'shadow-blur': '3px',
       'shadow-spread': '0px',
       'shadow-offset-x': '0px',
-      'shadow-offset-y': '0px'
+      'shadow-offset-y': '0px',
     },
     dark: {
       background: 'oklch(0.16 0.03 17.48)',
@@ -722,8 +723,8 @@ export const presets: Record<string, ThemeStyles> = {
       'sidebar-accent': 'oklch(0.43 0.13 20.62)',
       'sidebar-accent-foreground': 'oklch(0.99 0.00 359.99)',
       'sidebar-border': 'oklch(0.39 0.12 20.37)',
-      'sidebar-ring': 'oklch(0.50 0.16 20.89)'
-    }
+      'sidebar-ring': 'oklch(0.50 0.16 20.89)',
+    },
   },
   'ghibli-studio': {
     light: {
@@ -761,7 +762,7 @@ export const presets: Record<string, ThemeStyles> = {
       'font-sans': 'Nunito, sans-serif',
       'font-serif': 'PT Serif, serif',
       'font-mono': 'JetBrains Mono, monospace',
-      radius: '0.625rem'
+      radius: '0.625rem',
     },
     dark: {
       background: 'oklch(0.20 0.01 48.35)',
@@ -794,8 +795,8 @@ export const presets: Record<string, ThemeStyles> = {
       'sidebar-accent': 'oklch(0.33 0.02 60.70)',
       'sidebar-accent-foreground': 'oklch(0.86 0.05 84.50)',
       'sidebar-border': 'oklch(0.33 0.02 60.70)',
-      'sidebar-ring': 'oklch(0.64 0.05 115.39)'
-    }
+      'sidebar-ring': 'oklch(0.64 0.05 115.39)',
+    },
   },
   'modern-minimal': {
     light: {
@@ -833,7 +834,7 @@ export const presets: Record<string, ThemeStyles> = {
 
       'font-serif': 'Source Serif 4, serif',
       'font-mono': 'JetBrains Mono, monospace',
-      radius: '0.375rem'
+      radius: '0.375rem',
     },
     dark: {
       background: 'oklch(0.20 0 0)',
@@ -866,8 +867,8 @@ export const presets: Record<string, ThemeStyles> = {
       'sidebar-accent': 'oklch(0.27 0.01 286.10)',
       'sidebar-accent-foreground': 'oklch(0.99 0 0)',
       'sidebar-border': 'oklch(1.00 0 0 / 10%)',
-      'sidebar-ring': 'oklch(0.55 0.02 285.93)'
-    }
+      'sidebar-ring': 'oklch(0.55 0.02 285.93)',
+    },
   },
 
   nature: {
@@ -906,7 +907,7 @@ export const presets: Record<string, ThemeStyles> = {
       'font-sans': 'Montserrat, sans-serif',
       'font-serif': 'Merriweather, serif',
       'font-mono': 'Source Code Pro, monospace',
-      radius: '0.5rem'
+      radius: '0.5rem',
     },
     dark: {
       background: 'oklch(0.27 0.03 150.77)',
@@ -939,8 +940,8 @@ export const presets: Record<string, ThemeStyles> = {
       'sidebar-accent': 'oklch(0.58 0.14 144.18)',
       'sidebar-accent-foreground': 'oklch(0.94 0.01 72.66)',
       'sidebar-border': 'oklch(0.39 0.03 142.99)',
-      'sidebar-ring': 'oklch(0.67 0.16 144.21)'
-    }
+      'sidebar-ring': 'oklch(0.67 0.16 144.21)',
+    },
   },
 
   'elegant-luxury': {
@@ -985,7 +986,7 @@ export const presets: Record<string, ThemeStyles> = {
       'shadow-blur': '16px',
       'shadow-spread': '-2px',
       'shadow-offset-x': '1px',
-      'shadow-offset-y': '1px'
+      'shadow-offset-y': '1px',
     },
     dark: {
       background: 'oklch(0.22 0.01 56.04)',
@@ -1018,8 +1019,8 @@ export const presets: Record<string, ThemeStyles> = {
       'sidebar-accent': 'oklch(0.56 0.15 49.00)',
       'sidebar-accent-foreground': 'oklch(0.96 0.06 95.62)',
       'sidebar-border': 'oklch(0.37 0.01 67.56)',
-      'sidebar-ring': 'oklch(0.51 0.19 27.52)'
-    }
+      'sidebar-ring': 'oklch(0.51 0.19 27.52)',
+    },
   },
 
   'neo-brutalism': {
@@ -1056,7 +1057,8 @@ export const presets: Record<string, ThemeStyles> = {
       'sidebar-border': 'oklch(0 0 0)',
       'sidebar-ring': 'oklch(0.65 0.24 26.97)',
       'font-sans': 'DM Sans, sans-serif',
-      'font-serif': 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
+      'font-serif':
+        'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
       'font-mono': 'Space Mono, monospace',
       radius: '0px',
       'shadow-color': 'hsl(0 0% 0%)',
@@ -1064,7 +1066,7 @@ export const presets: Record<string, ThemeStyles> = {
       'shadow-blur': '0px',
       'shadow-spread': '0px',
       'shadow-offset-x': '4px',
-      'shadow-offset-y': '4px'
+      'shadow-offset-y': '4px',
     },
     dark: {
       background: 'oklch(0 0 0)',
@@ -1097,8 +1099,8 @@ export const presets: Record<string, ThemeStyles> = {
       'sidebar-accent': 'oklch(0.68 0.18 252.26)',
       'sidebar-accent-foreground': 'oklch(0 0 0)',
       'sidebar-border': 'oklch(1.00 0 0)',
-      'sidebar-ring': 'oklch(0.70 0.19 23.19)'
-    }
+      'sidebar-ring': 'oklch(0.70 0.19 23.19)',
+    },
   },
 
   'pastel-dreams': {
@@ -1143,7 +1145,7 @@ export const presets: Record<string, ThemeStyles> = {
       'shadow-blur': '16px',
       'shadow-spread': '-4px',
       'shadow-offset-x': '0px',
-      'shadow-offset-y': '8px'
+      'shadow-offset-y': '8px',
     },
     dark: {
       background: 'oklch(0.22 0.01 56.04)',
@@ -1176,8 +1178,8 @@ export const presets: Record<string, ThemeStyles> = {
       'sidebar-accent': 'oklch(0.39 0.05 304.64)',
       'sidebar-accent-foreground': 'oklch(0.87 0.01 258.34)',
       'sidebar-border': 'oklch(0.34 0.04 308.85)',
-      'sidebar-ring': 'oklch(0.79 0.12 295.75)'
-    }
+      'sidebar-ring': 'oklch(0.79 0.12 295.75)',
+    },
   },
 
   'clean-slate': {
@@ -1222,7 +1224,7 @@ export const presets: Record<string, ThemeStyles> = {
       'shadow-blur': '8px',
       'shadow-spread': '-1px',
       'shadow-offset-x': '0px',
-      'shadow-offset-y': '4px'
+      'shadow-offset-y': '4px',
     },
     dark: {
       background: 'oklch(0.21 0.04 265.75)',
@@ -1255,8 +1257,8 @@ export const presets: Record<string, ThemeStyles> = {
       'sidebar-accent': 'oklch(0.37 0.03 259.73)',
       'sidebar-accent-foreground': 'oklch(0.87 0.01 258.34)',
       'sidebar-border': 'oklch(0.45 0.03 256.80)',
-      'sidebar-ring': 'oklch(0.68 0.16 276.93)'
-    }
+      'sidebar-ring': 'oklch(0.68 0.16 276.93)',
+    },
   },
 
   'midnight-bloom': {
@@ -1301,7 +1303,7 @@ export const presets: Record<string, ThemeStyles> = {
       'shadow-blur': '10px',
       'shadow-spread': '-2px',
       'shadow-offset-x': '0px',
-      'shadow-offset-y': '5px'
+      'shadow-offset-y': '5px',
     },
     dark: {
       background: 'oklch(0.23 0.01 264.29)',
@@ -1334,8 +1336,8 @@ export const presets: Record<string, ThemeStyles> = {
       'sidebar-accent': 'oklch(0.67 0.14 261.34)',
       'sidebar-accent-foreground': 'oklch(0.92 0 0)',
       'sidebar-border': 'oklch(0.39 0 0)',
-      'sidebar-ring': 'oklch(0.57 0.20 283.08)'
-    }
+      'sidebar-ring': 'oklch(0.57 0.20 283.08)',
+    },
   },
 
   'sunset-horizon': {
@@ -1380,7 +1382,7 @@ export const presets: Record<string, ThemeStyles> = {
       'shadow-blur': '12px',
       'shadow-spread': '-3px',
       'shadow-offset-x': '0px',
-      'shadow-offset-y': '6px'
+      'shadow-offset-y': '6px',
     },
     dark: {
       background: 'oklch(0.26 0.02 352.40)',
@@ -1413,8 +1415,8 @@ export const presets: Record<string, ThemeStyles> = {
       'sidebar-accent': 'oklch(0.83 0.11 58.00)',
       'sidebar-accent-foreground': 'oklch(0.26 0.02 352.40)',
       'sidebar-border': 'oklch(0.36 0.02 342.27)',
-      'sidebar-ring': 'oklch(0.74 0.16 34.71)'
-    }
+      'sidebar-ring': 'oklch(0.74 0.16 34.71)',
+    },
   },
 
   claude: {
@@ -1450,7 +1452,7 @@ export const presets: Record<string, ThemeStyles> = {
       'sidebar-accent-foreground': 'oklch(0.33 0 0)',
       'sidebar-border': 'oklch(0.94 0 0)',
       'sidebar-ring': 'oklch(0.77 0 0)',
-      radius: '0.5rem'
+      radius: '0.5rem',
     },
     dark: {
       background: 'oklch(0.27 0.00 106.64)',
@@ -1483,8 +1485,8 @@ export const presets: Record<string, ThemeStyles> = {
       'sidebar-accent': 'oklch(0.17 0.00 106.62)',
       'sidebar-accent-foreground': 'oklch(0.81 0.01 93.01)',
       'sidebar-border': 'oklch(0.94 0 0)',
-      'sidebar-ring': 'oklch(0.77 0 0)'
-    }
+      'sidebar-ring': 'oklch(0.77 0 0)',
+    },
   },
 
   caffeine: {
@@ -1520,7 +1522,7 @@ export const presets: Record<string, ThemeStyles> = {
       'sidebar-accent-foreground': 'oklch(0.33 0 0)',
       'sidebar-border': 'oklch(0.94 0 0)',
       'sidebar-ring': 'oklch(0.77 0 0)',
-      radius: '0.5rem'
+      radius: '0.5rem',
     },
     dark: {
       background: 'oklch(0.18 0 0)',
@@ -1553,8 +1555,8 @@ export const presets: Record<string, ThemeStyles> = {
       'sidebar-accent': 'oklch(0.27 0.01 286.03)',
       'sidebar-accent-foreground': 'oklch(0.97 0.00 286.38)',
       'sidebar-border': 'oklch(0.27 0.01 286.03)',
-      'sidebar-ring': 'oklch(0.87 0.01 286.29)'
-    }
+      'sidebar-ring': 'oklch(0.87 0.01 286.29)',
+    },
   },
 
   corporate: {
@@ -1593,7 +1595,7 @@ export const presets: Record<string, ThemeStyles> = {
       'font-sans': 'Inter, sans-serif',
       'font-serif': 'Source Serif 4, serif',
       'font-mono': 'IBM Plex Mono, monospace',
-      radius: '0.375rem'
+      radius: '0.375rem',
     },
     dark: {
       background: 'oklch(0.26 0.03 262.71)',
@@ -1626,8 +1628,8 @@ export const presets: Record<string, ThemeStyles> = {
       'sidebar-accent': 'oklch(0.33 0.04 264.82)',
       'sidebar-accent-foreground': 'oklch(0.93 0.01 264.60)',
       'sidebar-border': 'oklch(0.35 0.04 262.16)',
-      'sidebar-ring': 'oklch(0.56 0.24 260.95)'
-    }
+      'sidebar-ring': 'oklch(0.56 0.24 260.95)',
+    },
   },
 
   slack: {
@@ -1666,7 +1668,7 @@ export const presets: Record<string, ThemeStyles> = {
       'font-sans': 'Lato, sans-serif',
       'font-serif': 'Merriweather, serif',
       'font-mono': 'Roboto Mono, monospace',
-      radius: '0.5rem'
+      radius: '0.5rem',
     },
     dark: {
       background: 'oklch(0.23 0.01 255.60)',
@@ -1699,8 +1701,8 @@ export const presets: Record<string, ThemeStyles> = {
       'sidebar-accent': 'oklch(0.33 0.03 326.23)',
       'sidebar-accent-foreground': 'oklch(0.93 0 0)',
       'sidebar-border': 'oklch(0.30 0.01 268.37)',
-      'sidebar-ring': 'oklch(0.58 0.14 327.21)'
-    }
+      'sidebar-ring': 'oklch(0.58 0.14 327.21)',
+    },
   },
 
   perplexity: {
@@ -1739,7 +1741,7 @@ export const presets: Record<string, ThemeStyles> = {
       'font-sans': 'Inter, sans-serif',
       'font-serif': 'Lora, serif',
       'font-mono': 'Roboto Mono, monospace',
-      radius: '0.5rem'
+      radius: '0.5rem',
     },
     dark: {
       background: 'oklch(0.21 0.02 224.44)',
@@ -1772,7 +1774,7 @@ export const presets: Record<string, ThemeStyles> = {
       'sidebar-accent': 'oklch(0.24 0.00 286.20)',
       'sidebar-accent-foreground': 'oklch(0.97 0.00 264.70)',
       'sidebar-border': 'oklch(0.29 0.00 286.27)',
-      'sidebar-ring': 'oklch(0.72 0.12 209.78)'
-    }
-  }
-}
+      'sidebar-ring': 'oklch(0.72 0.12 209.78)',
+    },
+  },
+};
