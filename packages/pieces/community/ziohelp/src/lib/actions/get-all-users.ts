@@ -9,6 +9,7 @@ import {
 } from '@activepieces/pieces-common';
 
 import { zioHelpAuth } from '../common/auth';
+import { organizationNameDropdown, departmentDropdown, userRolesDropdown } from '../common/props';
 
 interface User {
   id: number;
@@ -36,40 +37,61 @@ export const getAllUsers = createAction({
   displayName: 'Get All User Details',
 
   description:
-    'Find All ZioHelp User',
+    'Find all ZioHelp users, with optional filters for organization, department and role',
 
   props: {
-    email: Property.ShortText({
-      displayName: 'User Email',
-      description:
-        'Enter the email address of the user',
-      required: true,
+    organizationId: organizationNameDropdown(false),
+
+    role: userRolesDropdown,
+
+    page: Property.Number({
+      displayName: 'Page',
+      description: 'Page number (0-indexed). Defaults to 0.',
+      required: false,
+      defaultValue: 0,
+    }),
+
+    size: Property.Number({
+      displayName: 'Page Size',
+      description: 'Number of users per page. Defaults to 10000 (all users).',
+      required: false,
+      defaultValue: 10000,
     }),
   },
 
   async run(context) {
     const { auth, propsValue } = context;
 
-    // 1. Call  ZioHelp users API
+    // Build query params, only including filters that were actually provided
+    const queryParams: Record<string, string> = {
+      page: String(propsValue['page'] ?? 0),
+      size: String(propsValue['size'] ?? 10000),
+  
+    };
+
+    if (propsValue['organizationId']) {
+      queryParams['organizationId'] = String(propsValue['organizationId']);
+    }
+
+    if (propsValue['role']) {
+      queryParams['role'] = propsValue['role'];
+    }
+
+    // Call ZioHelp users API
     const usersResponse =
       await httpClient.sendRequest<UsersResponse>({
         method: HttpMethod.GET,
 
-        url: 'https://ziohelp-api.zionitai.com/api/users/all',
+        url: `${auth.props.baseUrl}/api/users/all`,
 
-        queryParams: {
-          page: '0',
-          size: '10000',
-          sortBy: 'fullName',
-          sortDir: 'asc',
-        },
+        queryParams,
 
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
           'Content-Type': 'application/json',
         },
       });
-    
+
     return usersResponse.body;
   },
 });
