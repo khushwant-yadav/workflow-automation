@@ -1,6 +1,7 @@
 import { createAction, Property } from '@activepieces/pieces-framework';
 import { zioHelpAuth } from '../common/auth';
 import { ZioHelpAuthValue, fetchServiceCatalog } from '../common/fetchers';
+import { organizationNameDropdown } from '../common/props';
 
 export const getServiceCatalogData = createAction({
   auth: zioHelpAuth,
@@ -9,11 +10,9 @@ export const getServiceCatalogData = createAction({
   description:
     'Fetches service catalog items (with IDs) for a specific organization. Optionally filter by request type or department — leave them empty to get all services.',
   props: {
-    organizationId: Property.ShortText({
-      displayName: 'Organization ID',
-      description: 'The ID of the organization to fetch service catalog for',
-      required: true,
-    }),
+
+    organizationId: organizationNameDropdown(true),
+    
     requestType: Property.ShortText({
       displayName: 'Request Type (optional)',
       description: 'Filter by request type, e.g. INCIDENT, SERVICE_REQUEST. Leave empty for all.',
@@ -28,6 +27,10 @@ export const getServiceCatalogData = createAction({
   async run(context) {
     const auth = context.auth as ZioHelpAuthValue;
     const { organizationId, requestType, department } = context.propsValue;
+
+    if (!organizationId) {
+      throw new Error('Organization ID is required.');
+    }
 
     const allServices = await fetchServiceCatalog(auth, organizationId);
     let services = allServices.filter((service) => service.active);

@@ -133,7 +133,7 @@ export const createTicket = createAction({
     preferredTimeSlot: Property.StaticDropdown({
       displayName: 'Preferred Time Slot',
       description: 'Select your preferred time slot for support',
-      required: true,
+      required: false,
       options: {
         options: [
           { label: 'Anytime', value: 'ANYTIME' },
@@ -148,7 +148,7 @@ export const createTicket = createAction({
     preferredCommunicationMode: Property.StaticDropdown({
       displayName: 'Preferred Communication Mode',
       description: 'Select your preferred communication mode for support',
-      required: true,
+      required: false,
       options: {
         options: [
           { label: 'Email', value: 'EMAIL' },
@@ -162,7 +162,7 @@ export const createTicket = createAction({
     aiAssistRequested: Property.Checkbox({
       displayName: 'AI Assist',
       description: 'Use AI to suggest routing and faster triage',
-      required: true,
+      required: false,
       defaultValue: false,
     }),
 
